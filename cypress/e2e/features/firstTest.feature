@@ -7,7 +7,6 @@ Background: Background Linkedin
     Then I check modal consent settigns user and close it
     Then I check modal app and close it
 
-@smoke 
 Scenario: Login fail for bad credentials
     Given I type on the input with "id" "session_key" the text value "user"
     When I type on the input with "id" "session_password" the text value "password"
@@ -15,7 +14,6 @@ Scenario: Login fail for bad credentials
     And I click in button with id "sign-in-form__submit-btn"
     Then I check text "Please enter a valid email address." exist in page
 
-@smoke 
 Scenario: Check button exist and click it
     Given I check url equals "https://www.linkedin.com/"
     When I chek input with id "session_key" exist in page
