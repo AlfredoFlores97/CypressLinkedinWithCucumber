@@ -5,11 +5,18 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
     e2e: { 
-        "chromeWebSecurity": false,
-        specPattern: '**/*.feature',
+        chromeWebSecurity: false,
+        specPattern: ['**/*.feature', '**/apiTests/*/*.js'],
+        env: {
+            snapshotOnly: true,
+            requestMode: true
+        },
         async setupNodeEvents(on, config) {
             await addCucumberPreprocessorPlugin(on, config);
-            on( 'file:preprocessor', createBundler({ plugins: [createEsbuildPlugin(config)] }));
+            on( 
+                'file:preprocessor', 
+                createBundler({ plugins: [createEsbuildPlugin(config)] })
+            );
             return config;
         }
     }

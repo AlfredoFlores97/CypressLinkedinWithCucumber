@@ -1,4 +1,5 @@
-export class MainPage {
+import { CommonPage } from "./commonPage";
+export class MainPage extends CommonPage {
 
     checkConsentSettings() {
         cy.get('.artdeco-global-alert').should('be.exist');
@@ -17,8 +18,17 @@ export class MainPage {
         cy.get('.cta-modal__dismiss-btn').should('be.exist').and('not.be.visible');
     }
 
-    typeOnInputById(id, text) {
-        cy.get(`[id=${id}]`).should('be.empty').type(text).should('have.value', text);
+    typeOnInputByAtt(att, value, text) {
+        const textType = Cypress.env(text) ? Cypress.env(text) : text
+        cy.get(`[${att}=${value}]`).should('be.empty').type(textType).should('have.value', textType);
+    }
+    
+    checkInputByAtt(att, value, stateCheck) {
+        cy.get(`[${att}=${value}]`).should(stateCheck);
+    }
+
+    clickOnInputByAtt(att, value) {
+        cy.get(`[${att}=${value}]`).click();
     }
 
     clickButtonWithId(id) {
@@ -39,5 +49,9 @@ export class MainPage {
 
     checkInputByIdHaveState(id, state) {
         cy.get(`[id=${id}]`).should(state);
+    }
+    
+    enterOnInputByAtt(att, value) {
+        cy.get(`[${att}=${value}]`).type("{enter}");
     }
 }

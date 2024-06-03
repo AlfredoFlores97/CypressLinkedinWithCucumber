@@ -11,8 +11,16 @@ Given("I check modal app and close it", () => {
     mainPage.closeModalApp();
 })
 
-Given("I type on the input with id {string} the text value {string}", (input, text) => {
-    mainPage.typeOnInputById(input, text);
+Given("I type on the input with {string} {string} the text value {string}", (att, value, text) => {
+    mainPage.typeOnInputByAtt(att, value, text);
+});
+
+Given("I check the input with {string} {string} have {string} state", (att, value, checkState) => {
+    mainPage.checkInputByAtt(att, value, checkState);
+});
+
+Given("I click on the input with {string} {string}", (att, value) => {
+    mainPage.clickOnInputByAtt(att, value);
 });
 
 Given("I check button with href {string} exist on page and click it", (name) => {
@@ -33,4 +41,8 @@ Given("I chek input with id {string} not exist in page", (id) => {
 
 Given("I chek input with id {string} have {string} atribute", (id, atribute) => {
     mainPage.checkInputByIdHaveState(id, atribute);
+});
+
+Given("I enter on the input with {string} {string}", (att, value) => {
+    mainPage.enterOnInputByAtt(att, value);
 });

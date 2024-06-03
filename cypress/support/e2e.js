@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-plugin-api'
 
 cy.on('uncaught:exception', (err, runnable) => {
     return false;
