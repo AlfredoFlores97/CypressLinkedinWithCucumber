@@ -1,4 +1,3 @@
-@regression 
 Feature: First test Linkedin
 
 Background: Background Linkedin

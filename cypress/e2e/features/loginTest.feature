@@ -1,3 +1,4 @@
+@regression 
 Feature: Login succesfull
 Scenario: Login Standard user and valid password
   Given I visit "https://www.saucedemo.com/"
