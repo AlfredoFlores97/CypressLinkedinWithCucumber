@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-plugin-api'
+import 'cypress-mochawesome-reporter/register';
 
 cy.on('uncaught:exception', (err, runnable) => {
     return false;
